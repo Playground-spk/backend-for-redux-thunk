@@ -22,6 +22,7 @@ const editPerson = async (req, res) => {
   for (key in req.body) {
     updatePerson[key] = req.body[key];
   }
+
   await db.Person.update(updatePerson, { where: { id: targetId } });
   res.status(200).send("Person is already update");
 };

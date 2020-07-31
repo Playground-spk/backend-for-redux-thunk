@@ -35,9 +35,9 @@ const login = async (req, res) => {
     const token = jwt.sign(payload, "secret", { expiresIn: 3600 });
 
     res.status(200).send(token);
+  } else {
+    res.status(400).send("username or password is wrong");
   }
-
-  res.status(400).send("username or password is wrong");
 };
 
 module.exports = { login, register };
